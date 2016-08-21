@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<android.support.v7.widget.RecyclerView
+    android:id="@+id/event_list_recycler_view"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="vertical"
+                    android:visibility="invisible"
+                    android:id="@+id/loading_viewgroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+        <ProgressBar
+            android:layout_centerInParent="true"
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fetching events..."
+            android:layout_below="@id/progress_bar"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="vertical"
+                    android:visibility="invisible"
+                    android:id="@+id/error_viewgroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+        <ImageView
+            android:layout_centerInParent="true"
+            android:id="@+id/error_drawable"
+            android:src="@drawable/error"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            />
+        <TextView
+            android:id="@+id/error_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/error_fetching_events"
+            android:layout_below="@id/error_drawable"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+</FrameLayout>

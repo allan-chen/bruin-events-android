@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="894922f67adeaaef51f077a29e315da21a3382d3">
+        <dex dex="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-24.0.0_c09bbb97fe6037584d92ee83454c4b37596a8eca\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="129b58c181f9cd86a5749ef7afa8a65775e15f14">
+        <dex dex="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_722adfee691d8bab5aea8936b0ac1edaec7610e2\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="d9ecde39b460470e655de6e47c05573d2d5a8bfb">
+        <dex dex="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-23.4.0_6a20f9fb1444ce3c44c9bb879b9c5a63f3e5b136\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\exploded-aar\com.android.support\design\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
+        <dex dex="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.4.0_0f91de1d25b01ec40c115259ee3775af798b9ec8\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_7b543a41ca5e0f45ef1d298d82c4570aea334d37\classes.dex" />
+    </item>
+    <item
+        jar="C:\Program Files (x86)\Android\android-sdk\extras\android\m2repository\com\android\support\support-annotations\24.0.0\support-annotations-24.0.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.0.0_5b8b65cc516f7c0d8dacd9963448f4dc49652f87\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_ee5090f03a387db833f94384dcb2c96ce72c4d63\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Allan\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-tasks-1.4.0_50210eb881d71d4945a090e66daf84517abdd6cc\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.4.0_835b304ff4509b1746bb2ce638cd9c74cd876861\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.0.0_57c377b42c1c196ef8c4796265377d05349038a8\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.4.0_9cc9d0aa3d3e5acecd4fbafb6c8a21532df98eec\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\exploded-aar\com.android.support\customtabs\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="2d1eaa9e0b98f8fc4c2b989d9b30d4f1480648ac">
+        <dex dex="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-customtabs-23.4.0_b2458523821df156cf79d99028a9fac052f29587\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="40c83f731ef072894b278c8f2a005b2f8baa87ff">
+        <dex dex="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_82ed4c712a199fdabf7c94561003b8db7a746a90\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Allan\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-applinks\1.4.0\8ad21bf21784dacce5f2043afb97218cc377e835\bolts-applinks-1.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-applinks-1.4.0_8bea7d066a1afe48cf43473608f3d25397c90d03\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.14.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="42a3ae86dd3ae2876d3e95c2e6e104ae57a50a65">
+        <dex dex="C:\Users\Allan\AndroidStudioProjects\FOMOList\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.android-facebook-android-sdk-4.14.1_9fd3db4445a09e057533d7caafe554edb2488c29\classes.dex" />
+    </item>
+
+</items>

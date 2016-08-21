@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">UCLA Events</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_home">Home</string>
+    <string name="action_categories">Categories</string>
+    <string name="action_favorite">Favorites</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_feedback">Feedback</string>
+
+    <string name="network_error_toast">No internet connection.</string>
+    <string name="using_offline_data_toast">Using offline data.</string>
+    <string name="no_offline_data_error_toast">No offline data available.</string>
+    <string name="error_fetching_events">Error fetching events</string>
+    <string name="error_results_empty">No results found</string>
+    <string name="event_details">Event Details</string>
+
+
+    <string name="facebook_app_id">134006567031363</string>
+</resources>
