@@ -44,9 +44,11 @@ public class HomeActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.home_frame_layout, EventListFragment.newInstance(EventListFragment.PARAM_VIEW_RECENTS,null), TAG_EVENT_LIST_FRAGMENT)
-                .commit();
+        if(getSupportFragmentManager().findFragmentByTag(TAG_EVENT_LIST_FRAGMENT)==null) {
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.home_frame_layout, EventListFragment.newInstance(EventListFragment.PARAM_VIEW_RECENTS, null), TAG_EVENT_LIST_FRAGMENT)
+                    .commit();
+        }
     }
 
     @Override

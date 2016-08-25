@@ -62,10 +62,13 @@ public class EventListFragment extends Fragment {
         mLoadingViewGroup = (ViewGroup) v.findViewById(R.id.loading_viewgroup);
         mLoadingViewGroup.setVisibility(View.VISIBLE);
         mErrorViewGroup = (ViewGroup) v.findViewById(R.id.error_viewgroup);
-
-        new EventFetcherTask().execute(getArguments().getString(BUNDLE_KEY_QUERY_STRING));
-
         return v;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        new EventFetcherTask().execute(getArguments().getString(BUNDLE_KEY_QUERY_STRING));
     }
 
     public void refreshEvents(){
