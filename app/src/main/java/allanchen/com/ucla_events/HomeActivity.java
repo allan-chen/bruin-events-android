@@ -84,8 +84,9 @@ public class HomeActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
             case R.id.menu_item_refresh_list:
-                EventListFragment elf = EventListFragment.newInstance(EventListFragment.PARAM_VIEW_RECENTS,null);
-                getSupportFragmentManager().beginTransaction().replace(R.id.home_frame_layout,elf).commit();
+                EventListFragment e =
+                        (EventListFragment) getSupportFragmentManager().findFragmentByTag(TAG_EVENT_LIST_FRAGMENT);
+                e.refreshEvents();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -113,6 +114,11 @@ public class HomeActivity extends AppCompatActivity
                 case R.id.nav_home:
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.home_frame_layout, EventListFragment.newInstance(EventListFragment.PARAM_VIEW_RECENTS,null), TAG_EVENT_LIST_FRAGMENT)
+                            .commit();
+                    break;
+                case R.id.nav_favorite:
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.home_frame_layout,EventListFragment.newInstance(EventListFragment.PARAM_VIEW_FAVS,null), TAG_EVENT_LIST_FRAGMENT)
                             .commit();
                     break;
                 case R.id.nav_categories:

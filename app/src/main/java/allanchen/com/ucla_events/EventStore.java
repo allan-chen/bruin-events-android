@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.annotation.Nullable;
 import android.util.Log;
 
 import java.sql.Date;
@@ -26,6 +27,24 @@ public class EventStore {
     public static final String TAG = "EventStore";
 
     private SQLiteDatabase mEventBase;
+
+    public List<Event> fetchEvents(@Nullable String query){
+        List<Event> events = new EventFetcher().fetchEvents(query);
+        setEventCache(events);
+        return events;
+    }
+
+    public List<Event> fetchFavEvents(){
+        List<Event> events = new EventFetcher().fetchEvents(null);
+        List<Event> favEvents = new ArrayList<>();
+        for(Event e:events){
+            //Look up isFavorite from local db
+            if(isFavorite(e.getID())){
+                favEvents.add(e);
+            }
+        }
+        return favEvents;
+    }
 
     public void setEventCache(List<Event> eventCache) {
         for(Event e :eventCache){

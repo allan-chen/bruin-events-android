@@ -32,6 +32,10 @@ public class EventListFragment extends Fragment {
     private static final String BUNDLE_KEY_VIEW_MODE = "viewmode";
     private static final String BUNDLE_KEY_QUERY_STRING = "query";
 
+    private RecyclerView mRecyclerView;
+    private ViewGroup mLoadingViewGroup;
+    private ViewGroup mErrorViewGroup;
+
     public static EventListFragment newInstance(int param, @Nullable String query){
         EventListFragment e = new EventListFragment();
         Bundle b = new Bundle();
@@ -40,11 +44,6 @@ public class EventListFragment extends Fragment {
         e.setArguments(b);
         return e;
     }
-
-    private RecyclerView mRecyclerView;
-    private ViewGroup mLoadingViewGroup;
-    private ViewGroup mErrorViewGroup;
-
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -64,16 +63,14 @@ public class EventListFragment extends Fragment {
         mLoadingViewGroup.setVisibility(View.VISIBLE);
         mErrorViewGroup = (ViewGroup) v.findViewById(R.id.error_viewgroup);
 
-        switch(getArguments().getInt(BUNDLE_KEY_VIEW_MODE)) {
-            case PARAM_VIEW_RECENTS:
-                new EventFetcherTask().execute();
-                break;
-            case PARAM_SEARCH_QUERY:
-                new EventFetcherTask().execute(getArguments().getString(BUNDLE_KEY_QUERY_STRING));
-        }
+        new EventFetcherTask().execute(getArguments().getString(BUNDLE_KEY_QUERY_STRING));
+
         return v;
     }
 
+    public void refreshEvents(){
+        new EventFetcherTask().execute(getArguments().getString(BUNDLE_KEY_QUERY_STRING));
+    }
 
     private class EventHolder extends RecyclerView.ViewHolder
     implements View.OnClickListener{
@@ -177,10 +174,16 @@ public class EventListFragment extends Fragment {
         @Override
         protected List<Event> doInBackground(String... params) {
             EventFetcher fetcher = new EventFetcher();
-            if(params.length==0){
-                return fetcher.fetchEvents(null);
+            EventStore eventStore = EventStore.getInstance(getActivity());
+            switch(getArguments().getInt(BUNDLE_KEY_VIEW_MODE)) {
+                case PARAM_VIEW_RECENTS:
+                case PARAM_SEARCH_QUERY:
+                    return eventStore.fetchEvents(params[0]);
+                case PARAM_VIEW_FAVS:
+                    return eventStore.fetchFavEvents();
+                default:
+                    return null;
             }
-            else return fetcher.fetchEvents(params[0]);
         }
 
         @Override
