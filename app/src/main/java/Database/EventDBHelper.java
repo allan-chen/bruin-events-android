@@ -28,8 +28,10 @@ public class EventDBHelper extends SQLiteOpenHelper {
                 EventDBSchema.EventTable.Cols.EVENT_LINK+","+
                 EventDBSchema.EventTable.Cols.HOST+","+
                 EventDBSchema.EventTable.Cols.LOCATION+","+
-                EventDBSchema.EventTable.Cols.TAGS+","+
-                EventDBSchema.EventTable.Cols.ISFAV+
+                EventDBSchema.EventTable.Cols.TAGS+
+                ")");
+        db.execSQL("create table "+ EventDBSchema.FavoritesTable.NAME+"("+
+                EventDBSchema.FavoritesTable.Cols.ID+
                 ")");
     }
 

@@ -17,7 +17,13 @@ public class EventDBSchema {
             public static final String HOST = "host";
             public static final String TITLE = "title";
             public static final String TAGS = "tags";
-            public static final String ISFAV = "__v";
+        }
+    }
+    public static final class FavoritesTable{
+        public static final String NAME = "favEventsDB";
+
+        public static final class Cols{
+            public static final String ID = "_id";
         }
     }
 }

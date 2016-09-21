@@ -1,13 +1,17 @@
 package allanchen.com.ucla_events;
 
+import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +39,9 @@ public class EventListFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private ViewGroup mLoadingViewGroup;
     private ViewGroup mErrorViewGroup;
+    private int mViewMode;
+
+    private List<Event> mCachedEvents;
 
     public static EventListFragment newInstance(int param, @Nullable String query){
         EventListFragment e = new EventListFragment();
@@ -48,6 +55,7 @@ public class EventListFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mViewMode = getArguments().getInt(BUNDLE_KEY_VIEW_MODE);
     }
 
     @Nullable
@@ -57,19 +65,38 @@ public class EventListFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_home,container,false);
         mRecyclerView = (RecyclerView) v.findViewById(R.id.event_list_recycler_view);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.addItemDecoration(new SimpleDividerItemDecoration(getActivity()));
         mLoadingViewGroup = (ViewGroup) v.findViewById(R.id.loading_viewgroup);
-        mLoadingViewGroup.setVisibility(View.VISIBLE);
         mErrorViewGroup = (ViewGroup) v.findViewById(R.id.error_viewgroup);
+        List<Event> cache = EventManager.getInstance().getCachedRecentEvents();
+        if(cache!=null && mViewMode==PARAM_VIEW_RECENTS)
+            mRecyclerView.setAdapter(new EventAdapter(cache));
+        else refreshEvents();
+
         return v;
     }
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        new EventFetcherTask().execute(getArguments().getString(BUNDLE_KEY_QUERY_STRING));
-    }
+  /*  @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        String activityTitle;
+        switch (mViewMode){
+            case PARAM_SEARCH_QUERY:
+                activityTitle = "Search results: \"" +getArguments().getString(BUNDLE_KEY_QUERY_STRING)+"\"";
+                break;
+            case PARAM_VIEW_FAVS:
+                activityTitle = "Favorites";
+                break;
+            case PARAM_VIEW_RECENTS:
+                activityTitle = "Recent Events";
+                break;
+            default:
+                activityTitle = getString(R.string.app_name);
+        }
+        AppCompatActivity appCompatActivity = (AppCompatActivity) context;
+        appCompatActivity.getSupportActionBar().setTitle(activityTitle);
+    }*/
 
     public void refreshEvents(){
         new EventFetcherTask().execute(getArguments().getString(BUNDLE_KEY_QUERY_STRING));
@@ -98,9 +125,9 @@ public class EventListFragment extends Fragment {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     if(isChecked){
-                        EventStore.getInstance(getContext()).setFavorite(mEvent);
+                        mEvent.setFavorite(true);
                     }
-                    else EventStore.getInstance(getContext()).removeFavorite(mEvent);
+                    else mEvent.setFavorite(false);
                 }
             });
             itemView.setOnClickListener(this);
@@ -108,12 +135,12 @@ public class EventListFragment extends Fragment {
 
         public void bindEvent(Event event){
             mEvent = event;
-            mTitle.setText(event.getTitle());
+            mTitle.setText(event.getTitle().length()<30?event.getTitle():event.getTitle().substring(0,30)+"...");
             mShortDescript.setText(event.getShortDescription());
             mLocation.setText(event.getLocation());
             mTime.setText(event.getDate());
             mTags.setText(event.getTagString());
-            mIsFavorite.setChecked(EventStore.getInstance(getContext()).isFavorite(event.getID()));
+            mIsFavorite.setChecked(mEvent.isFavorite());
         }
 
         @Override
@@ -161,7 +188,7 @@ public class EventListFragment extends Fragment {
             if(cm.getActiveNetworkInfo()==null || !cm.getActiveNetworkInfo().isConnectedOrConnecting()){
                 this.cancel(false);
                 Toast.makeText(getContext(),R.string.network_error_toast,Toast.LENGTH_LONG).show();
-                List<Event> cache = EventStore.getInstance(getContext()).getEventCache();
+                List<Event> cache = OfflineEventCache.getInstance(getContext()).getEventCache();
                 if(cache.size()==0){
                     Toast.makeText(getContext(),R.string.no_offline_data_error_toast,Toast.LENGTH_LONG).show();
                     mErrorViewGroup.setVisibility(View.VISIBLE);
@@ -176,40 +203,86 @@ public class EventListFragment extends Fragment {
 
         @Override
         protected List<Event> doInBackground(String... params) {
-            EventFetcher fetcher = new EventFetcher();
-            EventStore eventStore = EventStore.getInstance(getActivity());
-            switch(getArguments().getInt(BUNDLE_KEY_VIEW_MODE)) {
-                case PARAM_VIEW_RECENTS:
+            EventManager manager = EventManager.getInstance();
+            OfflineEventCache offlineEventCache = OfflineEventCache.getInstance(getActivity());
+
+            List<Event> events;
+
+            switch(mViewMode) {
                 case PARAM_SEARCH_QUERY:
-                    return eventStore.fetchEvents(params[0]);
+                    events= manager.searchEvents(params[0]);
+                    break;
+                case PARAM_VIEW_RECENTS:
+                    events = manager.getRecentEvents();
+                    break;
                 case PARAM_VIEW_FAVS:
-                    return eventStore.fetchFavEvents();
+                    return manager.getFavEvents(getActivity());
                 default:
                     return null;
             }
+            Log.d(TAG,"Event list fetched. Fetching favorites...");
+            List<Event> favEvents = manager.getFavEvents(getActivity());
+            Log.d(TAG,"Favorites fetched. Labelling favorite events...");
+            //If events not null, internet connectivity is verified. So label
+            if(events!=null) labelEvents(events, favEvents);
+            return events;
         }
 
         @Override
         protected void onPostExecute(List<Event> events) {
             super.onPostExecute(events);
-
             mLoadingViewGroup.setVisibility(View.INVISIBLE);
-            mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
             if(events!=null && events.size()!=0) {
                 mRecyclerView.setAdapter(new EventAdapter(events));
-                EventStore.getInstance(getActivity()).setEventCache(events);
+                mCachedEvents = events;
+                if(mViewMode == PARAM_VIEW_RECENTS)
+                    new EventCachingTask().execute(events);
             }
             else {
-                TextView t = (TextView) mErrorViewGroup.findViewById(R.id.error_text_view);
-                if (getArguments().getInt(BUNDLE_KEY_VIEW_MODE) == PARAM_VIEW_RECENTS) {
-                    t.setText(R.string.error_fetching_events);
+                List<Event> eventCache = OfflineEventCache.getInstance(getActivity()).getEventCache();
+                if(eventCache != null && eventCache.size()!=0 && mViewMode ==PARAM_VIEW_RECENTS){
+                    List<String> favEventIDs = OfflineEventCache.getInstance(getActivity()).fetchGuestFavEventIDs();
+                    labelEventsByID(eventCache, favEventIDs);
+                    mRecyclerView.setAdapter(new EventAdapter(eventCache));
+                    Toast.makeText(getActivity(),"Error fetching events. Using offline data",Toast.LENGTH_SHORT).show();
                 }
-                else{
-                    t.setText(R.string.error_results_empty);
+                else {
+                    TextView t = (TextView) mErrorViewGroup.findViewById(R.id.error_text_view);
+                    if (mViewMode == PARAM_VIEW_RECENTS) {
+                        t.setText(R.string.error_fetching_events);
+                    } else {
+                        t.setText(R.string.error_results_empty);
+                    }
+                    mErrorViewGroup.setVisibility(View.VISIBLE);
                 }
-                mErrorViewGroup.setVisibility(View.VISIBLE);
+            }
+        }
+
+        private void labelEventsByID(List<Event> targetEventList, List<String> favEventIDs) {
+            if(favEventIDs!=null) {
+                for (Event event : targetEventList) {
+                    if (favEventIDs.contains(event.getID()))
+                        event.setFavorite(true);
+                }
+            }
+        }
+
+        private void labelEvents(List<Event> targetEventList, List<Event> favEvents) {
+            if(favEvents!=null) {
+                for (Event event : targetEventList) {
+                    if (favEvents.contains(event))
+                        event.setFavorite(true);
+                }
             }
         }
     }
 
+    private class EventCachingTask extends AsyncTask<List<Event>,Void,Void>{
+        @Override
+        protected Void doInBackground(List<Event>... params) {
+            OfflineEventCache.getInstance(getActivity()).setEventCache(params[0]);
+            return null;
+        }
+    }
 }

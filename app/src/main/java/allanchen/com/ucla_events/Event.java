@@ -1,21 +1,29 @@
 package allanchen.com.ucla_events;
 
+import android.util.Log;
+
+import java.awt.font.TextAttribute;
 import java.io.Serializable;
+import java.lang.reflect.Array;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.Locale;
+import java.util.Objects;
 
 /**
  * Created by Allan on 6/26/2016.
  */
 public class Event implements Serializable,Comparator{
 
-    public static final int MAX_SHORT_DESCRIPT_LENGTH = 50;
+    public static final int MAX_SHORT_DESCRIPT_LENGTH = 40;
+    public static final String TAG = "Event Object";
 
     private String mID;
 
-
-    private String[] mTags;
+    private ArrayList<String> mTags;
     private String mTitle;
     private String mLocation;
     private String mShortDescription;
@@ -44,8 +52,9 @@ public class Event implements Serializable,Comparator{
     }
 
     public Event(String ID) {
-       mID = ID;
-        mTags = new String[3];
+        mID = ID;
+        mTags = new ArrayList<>();
+        mIsFavorite=false;
     }
 
     public String getID() {
@@ -61,20 +70,24 @@ public class Event implements Serializable,Comparator{
     }
 
     public int getNumTags() {
-        return mTags.length;
+        return mTags.size();
     }
 
-    public String[] getTagsArray(){
+    public ArrayList<String> getTagsArray(){
         return mTags;
     }
 
     public String getTagString(){
         String tags = "";
 
-        if(getNumTags()==0) return "No tags";
-        return mTags[0]+", "+mTags[1]+", "+mTags[2];
+        if(getNumTags()==0) return "No tags specified";
+        for(int i=0;i<mTags.size() && i<3;i++){
+            tags+= mTags.get(i)+", ";
+        }
+        tags=tags.substring(0,tags.length()-2);
+        return tags;
     }
-    public void setTags(String[] tags) {
+    public void setTags(ArrayList<String> tags) {
         mTags = tags;
     }
 
@@ -123,19 +136,32 @@ public class Event implements Serializable,Comparator{
     }
 
     public void setDate(String dateStr){
-
+        try {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US);
+            setDate(dateFormat.parse(dateStr));
+        }
+        catch (ParseException p){
+            Log.e(TAG,p.getMessage());
+            mDate=null;
+        }
     }
 
     public boolean isFavorite() {
         return mIsFavorite;
     }
 
-    public boolean setFavorite(boolean favorite) {
-        return mIsFavorite = favorite;
+    public void setFavorite(boolean favorite) {
+        mIsFavorite = favorite;
+        EventManager.getInstance().setFavEvent(this);
     }
 
     @Override
     public int compare(Object lhs, Object rhs) {
         return 0;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return o.getClass()==Event.class && ((Event)o).getID().equals(getID());
     }
 }

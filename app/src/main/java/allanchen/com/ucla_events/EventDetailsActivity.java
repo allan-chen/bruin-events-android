@@ -51,7 +51,7 @@ public class EventDetailsActivity extends AppCompatActivity {
             finish();
         }
 
-        setContentView(R.layout.activity_event);
+        setContentView(R.layout.activity_event_details);
 
         final Toolbar t = (Toolbar) findViewById(R.id.toolbar_event);
         setSupportActionBar(t);
@@ -79,7 +79,7 @@ public class EventDetailsActivity extends AppCompatActivity {
                 }
 
                 private int getAlphaForActionBar(int scrollY) {
-                    int minDist = 0, maxDist = 650;
+                    int minDist = 0, maxDist = 450;
                     if (scrollY > maxDist) {
                         return 255;
                     } else if (scrollY < minDist) {
@@ -97,7 +97,7 @@ public class EventDetailsActivity extends AppCompatActivity {
         }
         mFavoriteActionButton = (FloatingActionButton) findViewById(R.id.event_detail_fav_floating_action_button);
 
-        if(mEvent.setFavorite(EventStore.getInstance(this).isFavorite(mEvent.getID())))
+        if(mEvent.isFavorite())
         {
             mFavoriteActionButton.setImageResource(R.drawable.star_on);
         }
@@ -112,12 +112,12 @@ public class EventDetailsActivity extends AppCompatActivity {
                 FloatingActionButton f = (FloatingActionButton) v;
                 if(mEvent.isFavorite()){
                     mEvent.setFavorite(false);
-                    EventStore.getInstance(EventDetailsActivity.this).removeFavorite(mEvent);
+                    OfflineEventCache.getInstance(EventDetailsActivity.this).removeOfflineFavorite(mEvent);
                     f.setImageResource(R.drawable.star_off_white);
                 }
                 else{
                     mEvent.setFavorite(true);
-                    EventStore.getInstance(EventDetailsActivity.this).setFavorite(mEvent);
+                    OfflineEventCache.getInstance(EventDetailsActivity.this).setOfflineFavorite(mEvent);
                     f.setImageResource(R.drawable.star_on);
                 }
             }
@@ -138,17 +138,15 @@ public class EventDetailsActivity extends AppCompatActivity {
         mLocationTextView.setText(mEvent.getLocation());
 
         mLongDescription = (TextView) findViewById(R.id.event_long_description_text_view);
-        mLongDescription.setText(mEvent.getLongDescription() + "\n\n" + mEvent.getLongDescription() + "\n\n"
-                + mEvent.getLongDescription()+ "\n\n" + mEvent.getLongDescription()+ "\n\n" + mEvent.getLongDescription()+
-                "\n\n" + mEvent.getLongDescription()+ "\n\n" + mEvent.getLongDescription());
+        mLongDescription.setText(mEvent.getLongDescription());
 
         mTags = new TextView[3];
         mTags[0]=(TextView)findViewById(R.id.tag_text_view_1);
         mTags[1]=(TextView)findViewById(R.id.tag_text_view_2);
         mTags[2]=(TextView) findViewById(R.id.tag_text_view_3);
 
-        for(int i=0;i<3;i++){
-            mTags[i].setText(mEvent.getTagsArray()[i]);
+        for(int i=0;i<3 && i<mEvent.getNumTags();i++){
+            mTags[i].setText(mEvent.getTagsArray().get(i));
         }
 
     }

@@ -1,3 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="1bfe563dc147dd69971b6f21e6d611085fa3e627">
+        <dex dex="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_0f577dd5e81ad3ffe5392c1f0a062dfda4180a17.jar" />
+    </item>
+
+</items>
