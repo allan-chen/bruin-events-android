@@ -2,11 +2,139 @@
 <items version="2" >
 
     <item
+        is-multidex="true"
+        jar="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.4.0_d10398f55ddabc27badf5a5f9765cf3a2ac9ce89\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_ded0ff9600654039e98a5a9539670a60a16e6a70\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_3126c5daeae6d0e5a0d901da0f370d8d83020a26\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d9ecde39b460470e655de6e47c05573d2d5a8bfb">
+        <dex dex="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-23.4.0_e36d48220d02ca10dbb795ce541ededdc80b33ee\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.16.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="df6791bb4f5402ed138d3dd1385f8e2bc3ac8728">
+        <dex dex="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.android-facebook-android-sdk-4.16.0_3412aec2d28709fb415fce1d34eeb54fd6f3c713\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Allan\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-applinks\1.4.0\8ad21bf21784dacce5f2043afb97218cc377e835\bolts-applinks-1.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-applinks-1.4.0_8bea7d066a1afe48cf43473608f3d25397c90d03\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
+        optimize="true"
         revision="23.0.3"
-        sha1="1bfe563dc147dd69971b6f21e6d611085fa3e627">
-        <dex dex="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_0f577dd5e81ad3ffe5392c1f0a062dfda4180a17.jar" />
+        sha1="df9b9d6fed62bb32e74f939c631527f525f34a1d">
+        <dex dex="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_0f577dd5e81ad3ffe5392c1f0a062dfda4180a17\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="894922f67adeaaef51f077a29e315da21a3382d3">
+        <dex dex="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-24.0.0_ded4121d73d823d03d7ecc5415d0316870be6428\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\exploded-aar\com.android.support\design\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
+        <dex dex="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.4.0_a758b676509b2533c5290afe6a8a1e12657efa0f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.4.0_9ce9a37d79924f2404db99aae8a40508cecc0089\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="3757450af174a04fd4cd3031293728b39675b86a">
+        <dex dex="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_488a11409cfe53582b5879d25c514590cb98a829\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.0.0_0c0ec61485688f9d4a57f377e834018af9915610\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Allan\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-tasks-1.4.0_50210eb881d71d4945a090e66daf84517abdd6cc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\exploded-aar\com.android.support\customtabs\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="2d1eaa9e0b98f8fc4c2b989d9b30d4f1480648ac">
+        <dex dex="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-customtabs-23.4.0_9445bebe893dae4ef1e2656ef116835fe9e2ab29\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Program Files (x86)\Android\android-sdk\extras\android\m2repository\com\android\support\support-annotations\24.0.0\support-annotations-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="C:\Users\Allan\OneDrive\Documents\UCLA\Github Pub\UCLA-Events-Android\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.0.0_5b8b65cc516f7c0d8dacd9963448f4dc49652f87\classes.dex" />
     </item>
 
 </items>
